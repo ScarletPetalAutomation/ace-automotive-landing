@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ═══════════════════════════════════════════════════════════
+       SEO — Step 2: Book Your Appointment
+  ════════════════════════════════════════════════════════════ -->
+    <title>Book Your Spring Appointment | Ace Automotive Fredericton</title>
+    <meta name="description"
+        content="Pick a time that works for you. Spring Road-Ready Package — $249. Ace Automotive, Fredericton NB." />
+    <link rel="canonical" href="https://springtires.aceautofreddy.ca/book" />
+    <meta name="robots" content="noindex, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://springtires.aceautofreddy.ca/book" />
+    <meta property="og:title" content="Book Your Spring Appointment | Ace Automotive" />
+    <meta property="og:description" content="Pick your time. Spring Road-Ready Package — $249 flat. Fredericton NB." />
+    <meta property="og:image" content="https://springtires.aceautofreddy.ca/og-image.jpg" />
+
+    <!-- ═══════════════════════════════════════════════════════════
+       Meta Pixel — Lead fires immediately on this page load
+       (user arrived here by submitting the Step 1 form = qualified lead)
+  ════════════════════════════════════════════════════════════ -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1633935534703477');
+        fbq('track', 'PageView');
+        // ── Lead fires here — user submitted Step 1 form ──────────
+        fbq('track', 'Lead', {
+            content_name: 'Spring Road-Ready Package',
+            content_category: 'Auto Service Appointment Request',
+            value: 249,
+            currency: 'CAD'
+        });
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1633935534703477&ev=Lead&noscript=1" />
+    </noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0a0a0b;
+            color: #f0ede8;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        :root {
+            --red: #d42b2b;
+            --red-light: #ff3c3c;
+            --gold: #c9a84c;
+            --gold-light: #f0c96a;
+            --surface: #111113;
+            --surface-2: #1a1a1e;
+            --surface-3: #222228;
+            --border: rgba(255, 255, 255, 0.08);
+            --text-muted: #888;
+            --text-dim: #bbb;
+            --white: #f0ede8;
+            --max: 720px;
+        }
+
+        .container {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Top bar */
+        .topbar {
+            background: var(--red);
+            text-align: center;
+            padding: 10px 24px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        /* Header */
+        .page-header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 48px 0 40px;
+            text-align: center;
+        }
+
+        .step-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 168, 76, 0.12);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--gold-light);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        .step-badge .step-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold-light);
+        }
+
+        .page-header h1 {
+            font-size: clamp(26px, 5vw, 40px);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .page-header h1 em {
+            font-style: normal;
+            color: var(--red-light);
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: var(--text-dim);
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Progress steps */
+        .progress-bar {
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+        }
+
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .progress-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .progress-circle.done {
+            background: var(--red);
+            color: #fff;
+        }
+
+        .progress-circle.active {
+            background: var(--red);
+            color: #fff;
+            box-shadow: 0 0 0 4px rgba(212, 43, 43, 0.25);
+        }
+
+        .progress-circle.pending {
+            background: var(--surface-3);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        .progress-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+
+        .progress-label.active {
+            color: var(--white);
+        }
+
+        .progress-connector {
+            flex: 1;
+            height: 2px;
+            background: var(--border);
+            margin-bottom: 20px;
+            max-width: 60px;
+        }
+
+        .progress-connector.done {
+            background: var(--red);
+        }
+
+        /* Calendar section */
+        .calendar-section {
+            padding: 48px 0 72px;
+            background: var(--surface);
+        }
+
+        .calendar-wrap {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px 32px;
+        }
+
+        .calendar-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .calendar-title {
+            font-size: clamp(22px, 4vw, 30px);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .calendar-sub {
+            font-size: 15px;
+            color: var(--text-dim);
+            margin-bottom: 32px;
+        }
+
+        /* GHL Calendar embed */
+        .ghl-calendar-embed {
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 650px;
+        }
+
+        .ghl-calendar-embed iframe {
+            display: block;
+            width: 100%;
+            min-height: 650px;
+            border: none;
+        }
+
+        /* Reassurance strip */
+        .reassurance {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .reassurance-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        .reassurance-item .icon {
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            text-align: center;
+        }
+
+        .footer-name {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .footer-address {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .footer-back {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 16px;
+        }
+
+        .footer-back a {
+            color: var(--gold-light);
+            text-decoration: underline;
+        }
+
+        .footer-copy {
+            font-size: 11px;
+            color: #555;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 640px) {
+            .calendar-wrap {
+                padding: 24px 16px;
+            }
+
+            .reassurance {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top urgency bar -->
+    <div class="topbar">
+        <strong>Step 2 of 2</strong> — Pick your appointment time below
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar">
+        <div class="progress-steps">
+            <div class="progress-step">
+                <div class="progress-circle done">✓</div>
+                <span class="progress-label">Your Info</span>
+            </div>
+            <div class="progress-connector done"></div>
+            <div class="progress-step">
+                <div class="progress-circle active">2</div>
+                <span class="progress-label active">Book Time</span>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step">
+                <div class="progress-circle pending">3</div>
+                <span class="progress-label">Confirmed</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="step-badge">
+                <span class="step-dot"></span>
+                Spring Road-Ready Package — $249
+            </div>
+            <h1>Pick Your <em>Appointment Time</em></h1>
+            <p>Choose a date and time that works. We'll have everything ready when you arrive.</p>
+        </div>
+    </div>
+
+    <!-- Calendar section -->
+    <section class="calendar-section">
+        <div class="container">
+            <div class="calendar-wrap">
+                <p class="calendar-label">Schedule Your Visit</p>
+                <h2 class="calendar-title">Ace Automotive — Fredericton, NB</h2>
+                <p class="calendar-sub">Spring Road-Ready Package · $249 flat · Written report included</p>
+
+                <!-- GHL Calendar Embed -->
+                <div class="ghl-calendar-embed" id="ghl-calendar-container">
+                    <iframe src="https://api.leadconnectorhq.com/widget/booking/wgvSbBYhEhuKOvIkzOgt"
+                        style="width: 100%; border: none; overflow: hidden; min-height: 650px;" scrolling="no"
+                        id="wgvSbBYhEhuKOvIkzOgt_1772835485784"
+                        title="Book Your Spring Appointment at Ace Automotive"></iframe>
+                    <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+                </div>
+
+                <!-- Reassurance strip -->
+                <div class="reassurance">
+                    <div class="reassurance-item">
+                        <span class="icon">📋</span>
+                        <span>Written report card — yours to keep</span>
+                    </div>
+                    <div class="reassurance-item">
+                        <span class="icon">🛡️</span>
+                        <span>30-day drivability guarantee</span>
+                    </div>
+                    <div class="reassurance-item">
+                        <span class="icon">🔒</span>
+                        <span>No credit card needed to book</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-name">Ace Automotive</p>
+            <p class="footer-address">Fredericton, New Brunswick, Canada</p>
+            <p class="footer-back"><a href="https://springtires.aceautofreddy.ca/">← Back to offer details</a></p>
+            <p class="footer-copy">© 2025 Ace Automotive. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

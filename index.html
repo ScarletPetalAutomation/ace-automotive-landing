@@ -99,7 +99,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -1088,35 +1088,8 @@
             });
         });
 
-        // ── Lead + Schedule — fires on GHL form submission ───
-        // GHL iframes dispatch a 'message' event with type 'form-submitted'
-        // when the user successfully submits the form.
-        window.addEventListener('message', function (event) {
-            if (!event.data) return;
-            var data = typeof event.data === 'string' ? {} : event.data;
-            var isSubmit =
-                data.type === 'form-submitted' ||
-                data.event === 'form_submitted' ||
-                (data.formId && data.status === 'submitted');
-
-            if (isSubmit && typeof fbq !== 'undefined') {
-                // Lead event — someone filled out and submitted a form
-                fbq('track', 'Lead', {
-                    content_name: 'Spring Road-Ready Package',
-                    content_category: 'Auto Service Appointment Request',
-                    value: 249,
-                    currency: 'CAD'
-                });
-                // Schedule event — this form submission = booking intent
-                fbq('track', 'Schedule', {
-                    content_name: 'Spring Road-Ready Appointment',
-                    content_category: 'Auto Service',
-                    value: 249,
-                    currency: 'CAD'
-                });
-                console.log('[Pixel] Lead + Schedule fired on GHL form submit');
-            }
-        });
+        // Note: Lead fires on /book page load. Schedule fires on /thank-you page load.
+        // This keeps pixel tracking clean — no duplicate events, no postMessage race conditions.
     </script>
 
 </body>
