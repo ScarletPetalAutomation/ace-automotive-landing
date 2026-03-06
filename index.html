@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spring Road-Ready Package | Ace Automotive — New Brunswick, NJ</title>
+  <meta name="description" content="Get your car road-ready this spring: tire swap, oil change, brake inspection + 27-point safety check. $249. 40 slots only. Book at Ace Automotive, New Brunswick NJ." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0a0a0b;
+      color: #f0ede8;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── Tokens ────────────────────────────────────────────── */
+    :root {
+      --red: #d42b2b;
+      --red-dark: #a81f1f;
+      --red-light: #ff3c3c;
+      --gold: #c9a84c;
+      --gold-light: #f0c96a;
+      --surface: #111113;
+      --surface-2: #1a1a1e;
+      --surface-3: #222228;
+      --border: rgba(255,255,255,0.08);
+      --text-muted: #888;
+      --text-dim: #bbb;
+      --white: #f0ede8;
+      --max: 720px;
+    }
+
+    /* ─── Utility ───────────────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold-light); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px;
+    }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-light); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{ opacity:1; } 50%{ opacity:0.4; } }
+
+    /* ─── Top Bar ───────────────────────────────────────────── */
+    .topbar {
+      background: var(--red);
+      text-align: center;
+      padding: 10px 24px;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .topbar strong { font-weight: 800; }
+
+    /* ─── Hero ──────────────────────────────────────────────── */
+    .hero {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 0 64px;
+      text-align: center;
+    }
+    .hero .badge { margin-bottom: 28px; }
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+    .hero h1 em { font-style: normal; color: var(--red-light); }
+    .hero .sub {
+      font-size: 18px; color: var(--text-dim); max-width: 560px; margin: 0 auto 36px;
+    }
+    .slots-counter {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(212,43,43,0.12); border: 1px solid rgba(212,43,43,0.3);
+      border-radius: 100px; padding: 8px 18px;
+      font-size: 14px; font-weight: 600; color: #ff7070;
+      margin-bottom: 40px;
+    }
+    .slots-counter .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-light); animation: pulse 1.4s infinite; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--red); color: #fff;
+      font-size: 17px; font-weight: 800;
+      padding: 18px 40px; border-radius: 8px;
+      border: none; cursor: pointer;
+      box-shadow: 0 4px 30px rgba(212,43,43,0.4);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .hero-cta:hover { background: var(--red-light); transform: translateY(-2px); box-shadow: 0 8px 40px rgba(212,43,43,0.55); }
+    .hero-cta:active { transform: translateY(0); }
+    .hero-cta-arrow { font-size: 20px; }
+    .hero-note { margin-top: 16px; font-size: 13px; color: var(--text-muted); }
+
+    /* ─── Hook line ─────────────────────────────────────────── */
+    .hook-line {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+      padding: 28px 0;
+    }
+    .hook-line p {
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 700; line-height: 1.4;
+      text-align: center; color: var(--white);
+    }
+    .hook-line p span { color: var(--text-dim); font-weight: 400; }
+
+    /* ─── Value Stack ───────────────────────────────────────── */
+    .section { padding: 72px 0; }
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(26px, 4vw, 38px); font-weight: 800;
+      line-height: 1.15; letter-spacing: -0.02em;
+      color: var(--white); margin-bottom: 12px;
+    }
+    .section-sub { font-size: 16px; color: var(--text-dim); margin-bottom: 40px; }
+
+    .value-stack {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .value-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .value-item:last-child { border-bottom: none; }
+    .value-item:hover { background: var(--surface-3); }
+    .value-check {
+      width: 28px; height: 28px; min-width: 28px;
+      background: rgba(212,43,43,0.15); border: 1px solid rgba(212,43,43,0.3);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: var(--red-light); font-size: 13px; font-weight: 800; margin-top: 2px;
+    }
+    .value-text { flex: 1; }
+    .value-name { font-weight: 700; font-size: 16px; color: var(--white); margin-bottom: 2px; }
+    .value-desc { font-size: 14px; color: var(--text-dim); }
+    .value-price {
+      font-size: 15px; font-weight: 700; color: var(--text-muted);
+      text-decoration: line-through; white-space: nowrap;
+    }
+
+    .price-reveal {
+      background: linear-gradient(135deg, rgba(212,43,43,0.12) 0%, rgba(201,168,76,0.08) 100%);
+      border: 1px solid rgba(212,43,43,0.3);
+      border-radius: 16px; padding: 32px 28px;
+      text-align: center;
+    }
+    .price-was { font-size: 14px; color: var(--text-muted); margin-bottom: 4px; }
+    .price-was span { text-decoration: line-through; }
+    .price-now { font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--white); line-height: 1; }
+    .price-now sup { font-size: 32px; vertical-align: super; margin-right: 4px; }
+    .price-note { font-size: 14px; color: var(--text-dim); margin-top: 8px; }
+
+    /* ─── Guarantee ─────────────────────────────────────────── */
+    .guarantee-section { background: var(--surface-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .guarantee-card {
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px 32px;
+    }
+    .guarantee-icon { font-size: 40px; margin-bottom: 16px; }
+    .guarantee-title { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .guarantee-body { font-size: 16px; color: var(--text-dim); line-height: 1.7; }
+    .guarantee-body strong { color: var(--white); font-weight: 700; }
+    .guarantee-list { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 12px; }
+    .guarantee-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--text-dim); }
+    .guarantee-list li::before { content: "✓"; color: var(--gold); font-weight: 800; flex-shrink: 0; }
+
+    /* ─── Social Proof ──────────────────────────────────────── */
+    .proof-section { background: var(--surface); }
+    .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .proof-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .proof-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
+    .stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; margin-bottom: 12px; }
+    .proof-text { font-size: 14px; color: var(--text-dim); line-height: 1.65; margin-bottom: 16px; }
+    .proof-name { font-size: 13px; font-weight: 700; color: var(--white); }
+    .proof-date { font-size: 12px; color: var(--text-muted); }
+
+    /* ─── How It Works ──────────────────────────────────────── */
+    .how-section { background: var(--surface-2); }
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: flex; gap: 24px; align-items: flex-start;
+      padding: 28px 0; border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 44px; height: 44px; min-width: 44px;
+      background: var(--red); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; font-weight: 900; color: #fff;
+    }
+    .step-content {}
+    .step-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .step-desc { font-size: 14px; color: var(--text-dim); }
+
+    /* ─── CTA / Form ────────────────────────────────────────── */
+    .form-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .form-wrap {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 48px 40px;
+    }
+    .form-title { font-size: clamp(26px, 4vw, 36px); font-weight: 800; line-height: 1.2; color: var(--white); margin-bottom: 8px; }
+    .form-sub { font-size: 15px; color: var(--text-dim); margin-bottom: 32px; }
+
+    /* ── GHL FORM EMBED ZONE ────────────────────────────────── */
+    /* Replace this placeholder with your HighLevel form embed code */
+    .ghl-form-placeholder {
+      background: var(--surface-3);
+      border: 2px dashed rgba(201,168,76,0.3);
+      border-radius: 12px;
+      padding: 48px 32px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .ghl-form-placeholder .icon { font-size: 32px; margin-bottom: 12px; }
+    .ghl-form-placeholder strong { display: block; color: var(--gold); font-size: 15px; margin-bottom: 6px; }
+
+    /* Uncomment and replace with your actual GHL embed:
+    .ghl-form-embed iframe {
+      width: 100%; min-height: 600px; border: none;
+    }
+    */
+
+    .form-disclaimer { margin-top: 16px; font-size: 12px; color: var(--text-muted); text-align: center; }
+    .urgency-strip {
+      background: rgba(212,43,43,0.1); border: 1px solid rgba(212,43,43,0.2);
+      border-radius: 10px; padding: 14px 20px;
+      display: flex; gap: 12px; align-items: center;
+      margin-bottom: 24px;
+    }
+    .urgency-strip p { font-size: 14px; color: #ff9090; font-weight: 600; }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+    }
+    .footer-name { font-size: 18px; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+    .footer-address { font-size: 14px; color: var(--text-muted); margin-bottom: 4px; }
+    .footer-copy { font-size: 12px; color: #555; margin-top: 20px; }
+
+    /* ─── Divider ───────────────────────────────────────────── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ─── Sticky CTA bar (mobile) ───────────────────────────── */
+    .sticky-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 16px 24px;
+    }
+    @media (max-width: 600px) {
+      .sticky-bar { display: block; }
+    }
+    .sticky-cta {
+      display: block; width: 100%;
+      background: var(--red); color: #fff;
+      font-size: 16px; font-weight: 800;
+      padding: 16px; border-radius: 8px;
+      border: none; cursor: pointer; text-align: center;
+      box-shadow: 0 4px 20px rgba(212,43,43,0.4);
+    }
+
+    /* ─── Responsive ────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .value-item { flex-wrap: wrap; }
+      .form-wrap { padding: 32px 20px; }
+      body { padding-bottom: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Top Urgency Bar ──────────────────────────────────────── -->
+  <div class="topbar">
+    <strong>40 spring slots only.</strong> 12 already claimed. Once they're gone, package closes.
+  </div>
+
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Spring 2025 — Limited Availability
+      </div>
+      <h1>Your Car Was Fine This Morning.<br><em>Let's Keep It That Way.</em></h1>
+      <p class="sub">
+        One appointment. Tire swap. Oil change. Brake check. Full 27-point inspection.
+        Written report you keep. No surprises. No upsells you didn't ask for.
+      </p>
+      <div class="slots-counter">
+        <span class="dot"></span>
+        <span>28 of 40 spring slots still available</span>
+      </div>
+      <br />
+      <a href="#book" class="hero-cta" id="hero-cta-btn">
+        Book My Spring Appointment <span class="hero-cta-arrow">→</span>
+      </a>
+      <p class="hero-note">Takes 60 seconds. No credit card required.</p>
+    </div>
+  </section>
+
+  <!-- ── Hook Line ─────────────────────────────────────────────── -->
+  <div class="hook-line">
+    <div class="container">
+      <p>
+        Tired of wondering if your mechanic is being straight with you?
+        <span>We built this package around one thing: you leave knowing exactly what we found.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Value Stack ────────────────────────────────────────────── -->
+  <section class="section" id="offer">
+    <div class="container">
+      <p class="section-label">What You Get</p>
+      <h2 class="section-title">The Spring Road-Ready Package</h2>
+      <p class="section-sub">Everything your car needs heading into spring. Done in one visit.</p>
+
+      <div class="value-stack">
+        <div class="value-item">
+          <div class="value-check">✓</div>
+          <div class="value-text">
+            <div class="value-name">Full Seasonal Tire Swap</div>
+            <div class="value-desc">Mount, balance, and torque to spec. All four wheels.</div>
+          </div>
+          <div class="value-price">$120</div>
+        </div>
+        <div class="value-item">
+          <div class="value-check">✓</div>
+          <div class="value-text">
+            <div class="value-name">Brake System Inspection + Written Report Card</div>
+            <div class="value-desc">Actual measurements. Pad depth, rotor condition. In writing — you keep it.</div>
+          </div>
+          <div class="value-price">$75</div>
+        </div>
+        <div class="value-item">
+          <div class="value-check">✓</div>
+          <div class="value-text">
+            <div class="value-name">Engine Oil Change + Filter</div>
+            <div class="value-desc">Includes oil and filter. We check for metal shavings and leaks while we're in there.</div>
+          </div>
+          <div class="value-price">$80</div>
+        </div>
+        <div class="value-item">
+          <div class="value-check">✓</div>
+          <div class="value-text">
+            <div class="value-name">27-Point Road-Ready Safety Check</div>
+            <div class="value-desc">Lights, suspension, steering, belts, hoses. Printed report — yours to keep.</div>
+          </div>
+          <div class="value-price">$60</div>
+        </div>
+        <div class="value-item">
+          <div class="value-check">✓</div>
+          <div class="value-text">
+            <div class="value-name">All Fluid Top-Ups</div>
+            <div class="value-desc">Washer fluid, coolant, brake fluid. Everything checked and filled.</div>
+          </div>
+          <div class="value-price">$40</div>
+        </div>
+      </div>
+
+      <div class="price-reveal">
+        <p class="price-was">Total value: <span>$375</span></p>
+        <p class="price-now"><sup>$</sup>249</p>
+        <p class="price-note">Spring Package Price — all-in. No hidden fees.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Guarantee ──────────────────────────────────────────────── -->
+  <section class="section guarantee-section">
+    <div class="container">
+      <div class="guarantee-card">
+        <div class="guarantee-icon">🛡️</div>
+        <h3 class="guarantee-title">Our Written Guarantee</h3>
+        <p class="guarantee-body">
+          We give you a <strong>written report of everything we check — and everything we find.</strong>
+          No surprises. No upsells you didn't ask for. If we say you need something, we show you why.
+        </p>
+        <ul class="guarantee-list">
+          <li>If anything we touched causes a drivability issue within 30 days, we fix it free.</li>
+          <li>No "well, while we were in there" repairs. You approve everything first.</li>
+          <li>You leave with a physical report card. Not just a verbal "looks good."</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Social Proof ───────────────────────────────────────────── -->
+  <section class="section proof-section">
+    <div class="container">
+      <p class="section-label">Real Customers</p>
+      <h2 class="section-title" style="margin-bottom:32px;">What People Say</h2>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <div class="stars">★★★★★</div>
+          <p class="proof-text">"Brought my car in not knowing what was wrong. Left with a printed report explaining everything. First time I left a shop actually understanding what they fixed."</p>
+          <p class="proof-name">Marcus T.</p>
+          <p class="proof-date">Google Review</p>
+        </div>
+        <div class="proof-card">
+          <div class="stars">★★★★★</div>
+          <p class="proof-text">"Got quoted $900 somewhere else for rotors. Went to Ace for a second opinion. Paid a fraction of that. Honest guys. Showed me exactly what was worn and what wasn't."</p>
+          <p class="proof-name">Priya B.</p>
+          <p class="proof-date">Google Review</p>
+        </div>
+        <div class="proof-card">
+          <div class="stars">★★★★★</div>
+          <p class="proof-text">"I've been burned by shops before. Ace was different. No pressure. No 'while we're in there' surprises. My car needed exactly what they said it needed."</p>
+          <p class="proof-name">Dan K.</p>
+          <p class="proof-date">Google Review</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── How It Works ────────────────────────────────────────────── -->
+  <section class="section how-section">
+    <div class="container">
+      <p class="section-label">The Process</p>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-sub">Three steps. One afternoon.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <p class="step-title">Book your spring slot below</p>
+            <p class="step-desc">Fill out the form. Takes 60 seconds. We confirm your appointment time by phone or text — same day, usually within the hour.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <p class="step-title">Drop off your car</p>
+            <p class="step-desc">Leave it with us. We run through all five services in one visit. You get a call or text when it's ready.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <p class="step-title">Pick up your car and your report</p>
+            <p class="step-desc">We walk you through the 27-point report. What's good. What to watch. What — if anything — needs attention next. You leave knowing exactly where your car stands.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Booking Form ────────────────────────────────────────────── -->
+  <section class="section form-section" id="book">
+    <div class="container">
+      <div class="urgency-strip">
+        <span>🔴</span>
+        <p>28 of 40 spring slots available. This package closes when filled.</p>
+      </div>
+      <div class="form-wrap">
+        <h2 class="form-title">Book Your Spring Road-Ready Appointment</h2>
+        <p class="form-sub">Takes 60 seconds. We'll confirm your time same day.</p>
+
+        <!-- ════════════════════════════════════════════════════════
+             GHL FORM EMBED — Replace the placeholder below with
+             your HighLevel form embed code:
+             Go To Funnel → Sites → Forms → Embed your form here.
+             ════════════════════════════════════════════════════════ -->
+        <div class="ghl-form-placeholder" id="ghl-form-container">
+          <div class="icon">📋</div>
+          <strong>GHL Form Embed Goes Here</strong>
+          Paste your HighLevel form embed code (iframe or JS snippet) here to replace this placeholder.
+        </div>
+        <!-- ════════════════════════════════════════════════════════ -->
+
+        <p class="form-disclaimer">
+          No spam. No credit card. We'll reach out to confirm your time.
+          By submitting you agree to be contacted by Ace Automotive.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-name">Ace Automotive</p>
+      <p class="footer-address">New Brunswick, NJ</p>
+      <p class="footer-copy">© 2025 Ace Automotive. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ── Sticky Mobile CTA ──────────────────────────────────────── -->
+  <div class="sticky-bar">
+    <a href="#book" class="sticky-cta" id="sticky-cta-btn">Book My Spring Slot — $249 →</a>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       GHL CHAT WIDGET — Paste your HighLevel chat widget code below.
+       Found in: GHL → Settings → Chat Widget → Get Code
+
+       Example (replace with your actual snippet):
+       <script>
+         window.GHL_Chat_Config = { locationId: "YOUR_LOCATION_ID" };
+       </script>
+       <script src="https://widgets.leadconnectorhq.com/loader.js"
+         data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js">
+       </script>
+       ════════════════════════════════════════════════════════════════ -->
+
+  <!-- Smooth scroll to form when CTA is clicked -->
+  <script>
+    document.querySelectorAll('a[href="#book"]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('book').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Simple slot counter pulse animation
+    const slots = document.querySelector('.slots-counter span:last-child');
+    // Update this number once booked slots are known
+  </script>
+
+</body>
+</html>
